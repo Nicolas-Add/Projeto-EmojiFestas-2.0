@@ -1,0 +1,50 @@
+EMOJIFESTAS - FRONT-END INTEGRADO AO main.py
+
+ARQUIVOS
+- main.py: seu programa original. Mantenha-o na mesma pasta, sem alterações.
+- web_app.py: camada web que importa a classe Banco do main.py e disponibiliza rotas HTTP.
+- index.html: estrutura das telas.
+- style.css: identidade visual e responsividade.
+- script.js: navegação, formulários e comunicação com a API.
+- requirements.txt: dependência Flask.
+
+COMO ORGANIZAR
+Coloque os arquivos index.html, style.css, script.js, web_app.py e requirements.txt
+na MESMA pasta do seu main.py. Não substitua nem apague o main.py.
+
+INSTALAÇÃO (Windows / PowerShell)
+1. Abra o terminal na pasta do projeto.
+2. Instale o Flask:
+   python -m pip install -r requirements.txt
+3. Inicie a aplicação:
+   python web_app.py
+4. Abra no navegador:
+   http://127.0.0.1:5000
+
+INTEGRAÇÃO
+O web_app.py importa Banco de main.py. O banco emojifestas.db continua sendo
+gerenciado pelo seu programa original. O front-end já permite consultar salões,
+combos, extras, clientes e festas; cadastrar clientes e salões; criar agendamentos
+com validação de conflito; e registrar pagamentos na tabela pagamentos.
+
+IMPORTANTE SOBRE OS REQUISITOS DO PDF
+- O login/perfis (Administrador/Funcionário) ainda não foi implementado como
+  autenticação real, pois o main.py fornecido não possui usuários ou senhas.
+- A tela de pagamentos usa a tabela pagamentos existente no SQLite. O registro
+  é realizado pela camada web, sem alterar as classes ou funções de main.py.
+- Relatórios exibem resumos calculados a partir dos dados que já existem.
+- O layout é uma implementação inspirada nas referências visuais do PDF,
+  não uma cópia pixel a pixel do protótipo Figma.
+
+OBSERVAÇÕES
+- Não execute main.py para abrir a interface web; execute web_app.py.
+- Se a porta 5000 estiver ocupada, feche o outro programa que a utiliza.
+- Para disponibilizar o sistema em rede ou na internet, será necessário
+  configurar autenticação, segurança, servidor de produção e permissões.
+
+
+CORREÇÃO DO CADASTRO DE SALÕES
+- Substitua web_app.py e script.js pelos arquivos desta versão.
+- O backend agora devolve o erro real em JSON e registra detalhes no terminal.
+- O navegador também identifica falhas de conexão e respostas não JSON.
+- Mantenha main.py na mesma pasta.

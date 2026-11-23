@@ -1,0 +1,42 @@
+EMOJIFESTAS - PUBLICACAO GRATUITA NO RENDER
+============================================
+
+ARQUIVOS
+- main.py: modelos POO, classe Banco, regras de negocio e SQLite.
+- web_app.py: API Flask que utiliza a classe Banco do main.py.
+- index.html, style.css e script.js: interface web.
+- requirements.txt: dependencias Python.
+- render.yaml: configuracao do servico no plano gratuito, sem disco persistente.
+
+TESTAR LOCALMENTE
+1. Instale Python 3.10 ou superior.
+2. Abra o terminal nesta pasta.
+3. Execute: python -m pip install -r requirements.txt
+4. Execute: python web_app.py
+5. Acesse: http://127.0.0.1:5000
+
+PUBLICAR GRATUITAMENTE NO RENDER
+1. Envie todos os arquivos desta pasta para a raiz de um repositorio GitHub.
+2. No Render, escolha New > Blueprint e conecte o repositorio que contem render.yaml.
+3. O arquivo render.yaml configura o servico no plano Free, sem Persistent Disk.
+4. Aguarde o processo de build e acesse o endereco publico fornecido pelo Render.
+
+IMPORTANTE SOBRE O PLANO GRATUITO
+- Este projeto esta configurado para usar o plano gratuito e nao solicita disco persistente pago.
+- O servico gratuito pode ficar suspenso apos um periodo sem acessos e demorar um pouco para
+  responder quando for aberto novamente.
+- O armazenamento local do Render e temporario. O banco SQLite pode ser apagado quando a
+  instancia for reiniciada, redeployada ou substituida.
+- Para uma apresentacao, isso pode ser suficiente: use dados ficticios e cadastre novamente
+  os dados de demonstracao se o banco for reiniciado.
+- Nao utilize essa configuracao para armazenar dados reais, pessoais ou importantes.
+
+BANCO DE DADOS
+- Localmente, o banco e criado como emojifestas.db ao lado de main.py.
+- No Render Free, o SQLite fica no armazenamento temporario da instancia.
+- O primeiro inicio de um banco vazio cria os dados iniciais definidos em main.py.
+
+OBSERVACOES
+- Mantenha main.py e web_app.py no mesmo diretorio.
+- O comando gunicorn importa o objeto Flask chamado app do arquivo web_app.py.
+- O servidor usa um worker e uma thread para respeitar a conexao SQLite compartilhada.

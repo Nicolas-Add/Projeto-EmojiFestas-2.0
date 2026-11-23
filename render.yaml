@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: emojifestas
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --workers 1 --threads 1 --timeout 120 web_app:app
+    healthCheckPath: /
