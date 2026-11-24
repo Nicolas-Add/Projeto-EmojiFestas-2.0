@@ -7,7 +7,6 @@ from pathlib import Path
 
 # Arquivo do banco de dados SQLite.
 # Localmente, utiliza emojifestas.db ao lado deste arquivo.
-# No Render, pode utilizar um disco persistente via EMOJIFESTAS_DB_PATH.
 DB_FILE = Path(os.environ.get("EMOJIFESTAS_DB_PATH", Path(__file__).parent / "emojifestas.db"))
 DB_FILE.parent.mkdir(parents=True, exist_ok=True)
 DURACAO_BASE = 4  # horas incluídas em toda festa
